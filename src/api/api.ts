@@ -1,6 +1,13 @@
 export type ChainT = "osmosis" | "juno" | "hub" | "evmos";
-
-export const fetchValidatorData = async (chain: ChainT) => {
+export type ValidatorsDataT = {
+  Name: string;
+  TotalMEVRevenue: number;
+  TotalMEVShared: number;
+  bundles: number;
+};
+export const fetchValidatorData = async (
+  chain: ChainT
+): Promise<ValidatorsDataT[]> => {
   const response = await fetch(
     `https://skip-select.s3.amazonaws.com/${chain}/validators.json`,
     {

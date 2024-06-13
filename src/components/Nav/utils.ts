@@ -22,4 +22,5 @@ export const CHAIN_LINKS = [
 export type NavbarItemP = {
   label: string;
   url: string;
+  isSelected?: boolean;
 };

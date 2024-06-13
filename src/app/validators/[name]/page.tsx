@@ -1,11 +1,12 @@
 import React from "react";
 import { fetchValidatorData, ChainT } from "@/api/api";
+import ValidatorsCard from "@/components/Validators/ValidatorsCard";
 
 import { QueryClient } from "@tanstack/react-query";
 const Validator = async ({ params }: ChainT) => {
   const queryClient = new QueryClient();
 
-  const { name } = params;
+  const name = params?.name;
 
   let data;
   let error;
@@ -19,10 +20,16 @@ const Validator = async ({ params }: ChainT) => {
     error = e;
   }
 
-  console.log("data", data);
-  console.log("error", error);
-
-  return <div>TEST2</div>;
+  return (
+    <div>
+      {data ? <ValidatorsCard name={name as string} data={data} /> : null}
+      {error ? (
+        <div className="text-center	text-red-600 p-8">
+          {JSON.stringify((error as Error)?.message)}
+        </div>
+      ) : null}
+    </div>
+  );
 };
 
 export default Validator;
