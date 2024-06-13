@@ -9,7 +9,7 @@ const ValidatorsTableItem = ({ content, isText }: ValidatorsTableItemP) => {
   if (isText) {
     return <div className="text-left">{content}</div>;
   }
-  return <div className="text-right">{content}</div>;
+  return <div className="text-right">{content.toLocaleString()}</div>;
 };
 
 export default ValidatorsTableItem;

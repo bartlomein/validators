@@ -4,6 +4,7 @@ import ValidatorsHeader from "./ValidatorsHeader";
 import ValidatorsTable from "./ValidatorsTable";
 import { handleSort } from "./utils";
 
+import ValidatorStats from "./ValidatorStats";
 export type SortDirT = "ASC" | "DESC";
 export type SortByT = "Name" | "TotalMEVRevenue" | "TotalMEVShared" | "bundles";
 import { ValidatorsDataT } from "@/api/api";

@@ -7,7 +7,7 @@ import { SortByT, SortDirT } from "./ValidatorsCard";
 type ValidatorsTableP = {
   data: ValidatorsDataT[];
   handleHeaderClick: (dir: SortDirT, type: SortByT) => void;
-  sortDir: SortDirT;
+  sortDir: SortDirT | null;
   filterSearch: string;
 };
 
@@ -18,7 +18,7 @@ const ValidatorsTable = ({
   filterSearch,
 }: ValidatorsTableP) => {
   return (
-    <div>
+    <div className=" bg-slate-900 p-6 rounded-md">
       <ValidatorsTableHeader
         handleHeaderClick={handleHeaderClick}
         sortDir={sortDir}
@@ -27,9 +27,10 @@ const ValidatorsTable = ({
         if (validator.Name.toLowerCase().includes(filterSearch.toLowerCase())) {
           return (
             <div
-              className="grid auto-cols-auto  lg:grid-cols-4 md:grid-cols-2 p-4 auto-cols-max gap-8 m-auto"
+              className="grid grid-cols-[0.2fr_1fr_1fr_1fr_1fr] py-4 gap-4 m-auto"
               key={index}
             >
+              <ValidatorsTableItem content={index + 1} isText />
               <ValidatorsTableItem content={validator.Name} isText />
               <ValidatorsTableItem content={validator.TotalMEVRevenue} />
               <ValidatorsTableItem content={validator.TotalMEVShared} />

@@ -8,8 +8,8 @@ type ValidatorsHeaderP = {
 
 const ValidatorsHeader = ({ name, setFilterSearch }) => {
   return (
-    <div className="flex justify-between">
-      <div>Top MEV validators on {name}</div>
+    <div className="flex justify-between my-4">
+      <div className="text-xl">Top MEV validators on {name}</div>
       <div>
         <TextInput placeholder={"Search"} onChange={setFilterSearch} />
       </div>

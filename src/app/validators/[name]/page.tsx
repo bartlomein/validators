@@ -1,6 +1,8 @@
 import React from "react";
 import { fetchValidatorData, ChainT } from "@/api/api";
 import ValidatorsCard from "@/components/Validators/ValidatorsCard";
+import ValidatorStats from "@/components/Validators/ValidatorStats";
+import { returnStatTotals } from "./utils";
 
 import { QueryClient } from "@tanstack/react-query";
 const Validator = async ({ params }: ChainT) => {
@@ -19,10 +21,22 @@ const Validator = async ({ params }: ChainT) => {
   } catch (e) {
     error = e;
   }
+  const statTotals = returnStatTotals(data);
 
   return (
     <div>
-      {data ? <ValidatorsCard name={name as string} data={data} /> : null}
+      {data ? (
+        <div className="flex justify-between m-24">
+          <ValidatorsCard name={name as string} data={data} />
+
+          <ValidatorStats
+            name={name}
+            totalBundles={statTotals?.bundles}
+            totalMEV={statTotals?.TotalMEVRevenue}
+            delagateMEV={statTotals?.TotalMEVShared}
+          />
+        </div>
+      ) : null}
       {error ? (
         <div className="text-center	text-red-600 p-8">
           {JSON.stringify((error as Error)?.message)}

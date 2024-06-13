@@ -3,12 +3,15 @@ import React from "react";
 import { NavbarItemP } from "./utils";
 import NavBarItem from "./NavBarItem";
 import { usePathname } from "next/navigation";
+import { Button } from "../ui/button";
+import TextInput from "../TextInput/TextInput";
 
 type NavbarP = {
   firstHalfLinks: NavbarItemP[];
   secondHalfLinks?: NavbarItemP[];
   showSignupAndWalletConnect?: boolean;
   showSearch?: boolean;
+  extraClasses?: string;
 };
 
 const Navbar = ({
@@ -16,11 +19,14 @@ const Navbar = ({
   secondHalfLinks,
   showSignupAndWalletConnect,
   showSearch,
+  extraClasses = "",
 }: NavbarP) => {
   const pathname = usePathname();
 
   return (
-    <div className="flex justify-between">
+    <div
+      className={`flex justify-between items-center ${extraClasses}  px-4 mx-16`}
+    >
       <div className="flex flex-auto justify-between">
         <div className="flex">
           {firstHalfLinks.map((item, index) => (
@@ -47,8 +53,21 @@ const Navbar = ({
         ) : null}
       </div>
       <div>
-        {showSignupAndWalletConnect ? <div>SIGN UP AND WALLET</div> : null}
-        {showSearch ? <div>search</div> : null}
+        {showSignupAndWalletConnect ? (
+          <div className="flex">
+            <Button size={"lg"} className={"mx-4"}>
+              Sign up
+            </Button>
+            <Button size={"lg"} className={"mx-4"}>
+              Wallet
+            </Button>
+          </div>
+        ) : null}
+        {showSearch ? (
+          <div>
+            <TextInput placeholder={"Search"} />
+          </div>
+        ) : null}
       </div>
     </div>
   );
