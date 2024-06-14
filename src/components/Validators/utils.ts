@@ -12,9 +12,13 @@ export const handleSort = (
 
   if (sortType === "Name") {
     if (sortDir === "ASC") {
-      return [...data].sort((a, b) => a.Name.localeCompare(b.Name));
+      return [...data].sort((a, b) =>
+        a.Name.trimStart().localeCompare(b.Name.trimStart())
+      );
     }
-    return [...data].sort((a, b) => b.Name.localeCompare(a.Name));
+    return [...data].sort((a, b) =>
+      b.Name.trimStart().localeCompare(a.Name.trimStart())
+    );
   }
 
   if (sortDir === "ASC") {

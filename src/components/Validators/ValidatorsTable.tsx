@@ -8,6 +8,7 @@ type ValidatorsTableP = {
   data: ValidatorsDataT[];
   handleHeaderClick: (dir: SortDirT, type: SortByT) => void;
   sortDir: SortDirT | null;
+  sortType: SortByT;
   filterSearch: string;
 };
 
@@ -16,12 +17,14 @@ const ValidatorsTable = ({
   handleHeaderClick,
   sortDir,
   filterSearch,
+  sortType,
 }: ValidatorsTableP) => {
   return (
     <div className=" bg-slate-900 p-6 rounded-md">
       <ValidatorsTableHeader
         handleHeaderClick={handleHeaderClick}
         sortDir={sortDir}
+        sortType={sortType}
       />
       {data.map((validator, index) => {
         if (validator.Name.toLowerCase().includes(filterSearch.toLowerCase())) {

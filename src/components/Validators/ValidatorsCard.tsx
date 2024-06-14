@@ -37,6 +37,7 @@ const ValidatorsCard = ({ name, data }: ValidatorsCardP) => {
         data={tableData}
         handleHeaderClick={handleHeaderClick}
         sortDir={sortDir}
+        sortType={sortType}
       />
     </div>
   );
