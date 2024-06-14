@@ -14,3 +14,10 @@ Run `npm run dev` inside project root
 ## Testing
 
 Run `npm run test` inside the project root
+
+### Libraries used
+
+1. Reactjs
+2. NextJS
+3. React-query
+4. Button and Input components from shadcn

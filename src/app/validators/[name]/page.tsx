@@ -16,7 +16,7 @@ type ValidatorPageP = {
 const Validator = async ({ params }: ValidatorPageP) => {
   const queryClient = new QueryClient();
 
-  const { name } = params;
+  const name = params?.name;
 
   let data;
   let error;

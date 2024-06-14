@@ -2,7 +2,6 @@ import { handleSort, formatStat } from "./utils";
 import { ValidatorsDataT } from "@/api/api";
 
 describe("handleSort", () => {
-  // Sample data for testing
   const mockValidatorsData: ValidatorsDataT[] = [
     { Name: "OP", TotalMEVRevenue: 1200, TotalMEVShared: 5000, bundles: 100 },
     { Name: "BASE", TotalMEVRevenue: 800, TotalMEVShared: 3500, bundles: 1020 },
@@ -23,18 +22,38 @@ describe("handleSort", () => {
 
   it("should sort by Name in descending order", () => {
     const expected = [
-      { Name: "Pepe", TotalMEVRevenue: 1000, TotalMEVShared: 4200 },
-      { Name: "OP", TotalMEVRevenue: 1200, TotalMEVShared: 5000 },
-      { Name: "BASE", TotalMEVRevenue: 800, TotalMEVShared: 3500 },
+      {
+        Name: "Pepe",
+        TotalMEVRevenue: 1000,
+        TotalMEVShared: 4200,
+        bundles: 110,
+      },
+      { Name: "OP", TotalMEVRevenue: 1200, TotalMEVShared: 5000, bundles: 100 },
+      {
+        Name: "BASE",
+        TotalMEVRevenue: 800,
+        TotalMEVShared: 3500,
+        bundles: 1020,
+      },
     ];
     expect(handleSort("DESC", "Name", mockValidatorsData)).toEqual(expected);
   });
 
   it("should sort by TotalMEVRevenue in ascending order", () => {
     const expected = [
-      { Name: "BASE", TotalMEVRevenue: 800, TotalMEVShared: 3500 },
-      { Name: "Pepe", TotalMEVRevenue: 1000, TotalMEVShared: 4200 },
-      { Name: "OP", TotalMEVRevenue: 1200, TotalMEVShared: 5000 },
+      {
+        Name: "BASE",
+        TotalMEVRevenue: 800,
+        TotalMEVShared: 3500,
+        bundles: 1020,
+      },
+      {
+        Name: "Pepe",
+        TotalMEVRevenue: 1000,
+        TotalMEVShared: 4200,
+        bundles: 110,
+      },
+      { Name: "OP", TotalMEVRevenue: 1200, TotalMEVShared: 5000, bundles: 100 },
     ];
     expect(handleSort("ASC", "TotalMEVRevenue", mockValidatorsData)).toEqual(
       expected

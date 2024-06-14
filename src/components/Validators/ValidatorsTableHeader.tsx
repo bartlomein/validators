@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { SortByT, SortDirT } from "./ValidatorsCard";
 import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 
@@ -25,17 +25,20 @@ const ValidatorsTableHeader = ({
   sortDir,
   sortType,
 }: ValidatorHeaderTableP) => {
-  const sortArrow = (id: string | null) => {
-    if (!sortType) {
-      return null;
-    }
-    if (sortType === id && sortDir === "ASC") {
-      return <AiOutlineArrowUp />;
-    }
-    if (sortType === id && sortDir === "DESC") {
-      return <AiOutlineArrowDown />;
-    }
-  };
+  const sortArrow = useCallback(
+    (id: string | null) => {
+      if (!sortType) {
+        return null;
+      }
+      if (sortType === id && sortDir === "ASC") {
+        return <AiOutlineArrowUp />;
+      }
+      if (sortType === id && sortDir === "DESC") {
+        return <AiOutlineArrowDown />;
+      }
+    },
+    [sortType, sortDir]
+  );
 
   return (
     <div className="grid  grid-cols-[0.2fr_1fr_1fr_1fr_1fr]  gap-4 m-auto auto-columns-min ">
