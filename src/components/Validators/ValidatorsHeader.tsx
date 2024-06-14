@@ -9,7 +9,7 @@ type ValidatorsHeaderP = {
 
 const ValidatorsHeader = ({ name, setFilterSearch }: ValidatorsHeaderP) => {
   return (
-    <div className="flex justify-between my-4">
+    <div className="flex justify-between mb-4">
       <div className="text-xl">
         Top MEV validators on <span className="capitalize">{name}</span>
       </div>
