@@ -21,3 +21,9 @@ Run `npm run test` inside the project root
 2. NextJS
 3. React-query
 4. Button and Input components from shadcn
+
+##Video
+
+https://github.com/bartlomein/skip-validators/assets/3741391/c02e6b62-78c7-4303-84f8-801655c55c22
+
+
