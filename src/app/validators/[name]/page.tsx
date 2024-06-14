@@ -6,10 +6,17 @@ import { returnStatTotals } from "./utils";
 import Error from "@/components/Error/Error";
 
 import { QueryClient } from "@tanstack/react-query";
-const Validator = async ({ params }: ChainT) => {
+
+type ValidatorPageP = {
+  params: {
+    name: ChainT;
+  };
+};
+
+const Validator = async ({ params }: ValidatorPageP) => {
   const queryClient = new QueryClient();
 
-  const name = params?.name;
+  const { name } = params;
 
   let data;
   let error;
@@ -26,7 +33,7 @@ const Validator = async ({ params }: ChainT) => {
 
   return (
     <div>
-      {data ? (
+      {statTotals && data ? (
         <div className="flex justify-between mx-24 my-8">
           <ValidatorsCard name={name as string} data={data} />
 

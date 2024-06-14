@@ -1,11 +1,13 @@
 import React from "react";
-import { formatStat } from "./utils";
+import { AiOutlineDollar } from "react-icons/ai";
+
+import ValidatorStatsItem from "./ValidatorStatsItem";
 
 type ValidatorStatsP = {
   name: string;
-  totalBundles: number | undefined;
-  delagateMEV: number | undefined;
-  totalMEV: number | undefined;
+  totalBundles: number;
+  delagateMEV: number;
+  totalMEV: number;
 };
 
 const ValidatorStats = ({
@@ -14,15 +16,40 @@ const ValidatorStats = ({
   delagateMEV,
   totalMEV,
 }: ValidatorStatsP) => {
+  const items = [
+    {
+      icon: <AiOutlineDollar size={"30"} />,
+      text: "Number of bundles",
+      number: totalBundles,
+    },
+    {
+      icon: <AiOutlineDollar size={"30"} />,
+      text: "Mev captured for delegates",
+      number: delagateMEV,
+    },
+    {
+      icon: <AiOutlineDollar size={"30"} />,
+      text: "Total MEV captured",
+      number: totalMEV,
+    },
+  ];
+
   return (
     <div className="p-24 rounded-md	border border-slate-500 height-400 h-full">
-      <div className="text-2xl capitalize">{`${name} validator stats`}</div>
-      <div>Number of bundles</div>
-      <div>{totalBundles?.toLocaleString()}</div>
-      <div>MEV captured for delegates</div>
-      <div>{formatStat("en-US", "USD", delagateMEV)}</div>
-      <div>Total MEV captured</div>
-      <div>{formatStat("en-US", "USD", totalMEV)}</div>
+      <div className="text-2xl capitalize">
+        <span className="capitalize">{name}</span>
+        {` validator stats`}
+      </div>
+      {items.map((statItem, index) => {
+        return (
+          <ValidatorStatsItem
+            key={index}
+            icon={statItem.icon}
+            text={statItem.text}
+            number={statItem.number}
+          />
+        );
+      })}
     </div>
   );
 };
