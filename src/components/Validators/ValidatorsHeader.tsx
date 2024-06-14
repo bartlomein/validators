@@ -1,15 +1,18 @@
-import React from "react";
-import { Input } from "../ui/input";
+import React, { SetStateAction } from "react";
+
 import TextInput from "../TextInput/TextInput";
 
 type ValidatorsHeaderP = {
   name: string;
+  setFilterSearch: React.Dispatch<SetStateAction<string>>;
 };
 
-const ValidatorsHeader = ({ name, setFilterSearch }) => {
+const ValidatorsHeader = ({ name, setFilterSearch }: ValidatorsHeaderP) => {
   return (
     <div className="flex justify-between my-4">
-      <div className="text-xl">Top MEV validators on {name}</div>
+      <div className="text-xl">
+        Top MEV validators on <span className="capitalize">{name}</span>
+      </div>
       <div>
         <TextInput placeholder={"Search"} onChange={setFilterSearch} />
       </div>

@@ -55,17 +55,20 @@ const Navbar = ({
       <div>
         {showSignupAndWalletConnect ? (
           <div className="flex">
-            <Button size={"lg"} className={"mx-4"}>
+            <Button size={"lg"} className={"mr-2"}>
               Sign up
             </Button>
-            <Button size={"lg"} className={"mx-4"}>
+            <Button size={"lg"} className={"ml-2"}>
               Wallet
             </Button>
           </div>
         ) : null}
         {showSearch ? (
           <div>
-            <TextInput placeholder={"Search"} />
+            <TextInput
+              placeholder={"Search for chains"}
+              onChange={() => null}
+            />
           </div>
         ) : null}
       </div>
