@@ -3,6 +3,7 @@ import { fetchValidatorData, ChainT } from "@/api/api";
 import ValidatorsCard from "@/components/Validators/ValidatorsCard";
 import ValidatorStats from "@/components/Validators/ValidatorStats";
 import { returnStatTotals } from "./utils";
+import Error from "@/components/Error/Error";
 
 import { QueryClient } from "@tanstack/react-query";
 const Validator = async ({ params }: ChainT) => {
@@ -37,11 +38,7 @@ const Validator = async ({ params }: ChainT) => {
           />
         </div>
       ) : null}
-      {error ? (
-        <div className="text-center	text-red-600 p-8">
-          {JSON.stringify((error as Error)?.message)}
-        </div>
-      ) : null}
+      {error ? <Error name={name} errorMsg={error as Error} /> : null}
     </div>
   );
 };
