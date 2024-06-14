@@ -18,7 +18,11 @@ const Error = ({ name, errorMsg }: ErrorP) => {
         <span className="capitalize underline">{name}</span>
       </div>
       <div className="text-center text-red-600 p-8 text-md">
-        {JSON.stringify(errorMsg)}
+        {JSON.stringify(errorMsg, Object.getOwnPropertyNames(errorMsg))}
+      </div>
+      <div>
+        Please contact us with the error message above and we will get to it as
+        soon as possible
       </div>
     </div>
   );
