@@ -1,4 +1,3 @@
-import { ChainT } from "@/api/api";
 export const MAIN_NAVBAR_LINKS: NavbarItemP[] = [
   { label: "Home", url: "#" },
   { label: "Github", url: "#" },

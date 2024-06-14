@@ -18,15 +18,19 @@ export const handleSort = (
   }
 
   if (sortDir === "ASC") {
-    return [...data].sort((a, b) => b?.[sortType] - a?.[sortType]);
+    return [...data].sort((a, b) => a?.[sortType] - b?.[sortType]);
   }
-  return [...data].sort((a, b) => a?.[sortType] - b?.[sortType]);
+  return [...data].sort((a, b) => b?.[sortType] - a?.[sortType]);
 };
 
 type LanguageT = "en-US";
-type CurrencyT = "USD";
+type CurrencyT = "USD" | "EUR" | "JPY";
 
-export const formatStat = (language, currency, number) => {
+export const formatStat = (
+  language: LanguageT,
+  currency: CurrencyT,
+  number: number
+) => {
   return new Intl.NumberFormat(language, {
     style: "currency",
     currency: currency,
