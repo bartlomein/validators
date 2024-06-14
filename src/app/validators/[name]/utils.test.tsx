@@ -15,12 +15,11 @@ describe("returnStatTotals", () => {
     });
   });
 
-  // Test Case 3: Valid Data with Multiple Items
   it("should correctly calculate totals for valid data", () => {
     const sampleData: ValidatorsDataT[] = [
-      { TotalMEVRevenue: 100, TotalMEVShared: 80, bundles: 5 },
-      { TotalMEVRevenue: 250, TotalMEVShared: 200, bundles: 12 },
-      { TotalMEVRevenue: 50, TotalMEVShared: 45, bundles: 3 },
+      { TotalMEVRevenue: 100, TotalMEVShared: 80, bundles: 5, Name: "OP" },
+      { TotalMEVRevenue: 250, TotalMEVShared: 200, bundles: 12, Name: "BASE" },
+      { TotalMEVRevenue: 50, TotalMEVShared: 45, bundles: 3, Name: "Pepe" },
     ];
 
     expect(returnStatTotals(sampleData)).toEqual({
@@ -31,7 +30,7 @@ describe("returnStatTotals", () => {
   });
 
   it("should handle data items with missing properties", () => {
-    const partialData: ValidatorsDataT[] = [
+    const partialData: any = [
       { TotalMEVRevenue: 150, TotalMEVShared: 120 },
       { TotalMEVShared: 60, bundles: 8 },
       { TotalMEVRevenue: 300 },

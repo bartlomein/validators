@@ -10,7 +10,7 @@ type ValidatorStatItemP = {
 const ValidatorStatsItem = ({ icon, text, number }: ValidatorStatItemP) => {
   return (
     <div>
-      <div className="py-1">{icon}</div>
+      <div className="p-1">{icon}</div>
       <div className="text-slate-400 text-lg py-1">{text}</div>
       <div className="text-slate-200 py-2 text-xl">
         {formatStat("en-US", "USD", number)}

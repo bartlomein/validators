@@ -8,7 +8,7 @@ type ValidatorsTableP = {
   data: ValidatorsDataT[];
   handleHeaderClick: (dir: SortDirT, type: SortByT) => void;
   sortDir: SortDirT | null;
-  sortType: SortByT;
+  sortType: SortByT | null;
   filterSearch: string;
 };
 
