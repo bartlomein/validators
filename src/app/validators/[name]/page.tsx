@@ -26,7 +26,7 @@ const Validator = async ({ params }: ChainT) => {
   return (
     <div>
       {data ? (
-        <div className="flex justify-between m-24">
+        <div className="flex justify-between mx-24 my-8">
           <ValidatorsCard name={name as string} data={data} />
 
           <ValidatorStats

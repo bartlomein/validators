@@ -23,4 +23,5 @@ export type NavbarItemP = {
   label: string;
   url: string;
   isSelected?: boolean;
+  isFirst?: boolean;
 };

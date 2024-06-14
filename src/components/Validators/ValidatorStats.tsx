@@ -15,7 +15,7 @@ const ValidatorStats = ({
   totalMEV,
 }: ValidatorStatsP) => {
   return (
-    <div className="p-24 rounded-md	border border-slate-500 ">
+    <div className="p-24 rounded-md	border border-slate-500 height-400 h-full">
       <div className="text-2xl capitalize">{`${name} validator stats`}</div>
       <div>Number of bundles</div>
       <div>{totalBundles?.toLocaleString()}</div>

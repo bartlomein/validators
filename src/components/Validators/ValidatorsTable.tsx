@@ -27,7 +27,7 @@ const ValidatorsTable = ({
         if (validator.Name.toLowerCase().includes(filterSearch.toLowerCase())) {
           return (
             <div
-              className="grid grid-cols-[0.2fr_1fr_1fr_1fr_1fr] py-4 gap-4 m-auto"
+              className="grid grid-cols-[0.2fr_1fr_1fr_1fr_1fr] py-3 gap-4 m-auto"
               key={index}
             >
               <ValidatorsTableItem content={index + 1} isText />

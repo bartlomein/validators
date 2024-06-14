@@ -24,9 +24,7 @@ const Navbar = ({
   const pathname = usePathname();
 
   return (
-    <div
-      className={`flex justify-between items-center ${extraClasses}  px-4 mx-16`}
-    >
+    <div className={`flex justify-between items-center ${extraClasses} mx-24`}>
       <div className="flex flex-auto justify-between">
         <div className="flex">
           {firstHalfLinks.map((item, index) => (
@@ -35,6 +33,7 @@ const Navbar = ({
               label={item.label}
               key={index}
               isSelected={pathname.includes(item.url)}
+              isFirst={index === 0}
             />
           ))}
         </div>
@@ -47,6 +46,7 @@ const Navbar = ({
                 label={item.label}
                 key={index}
                 isSelected={pathname.includes(item.url)}
+                isFirst={index === 0}
               />
             ))}
           </div>
