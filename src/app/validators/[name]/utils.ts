@@ -9,9 +9,9 @@ export const returnStatTotals = (data: ValidatorsDataT[] | undefined) => {
   let totalBundles = 0;
 
   for (const item of data) {
-    totalRevenue += item.TotalMEVRevenue;
-    totalShared += item.TotalMEVShared;
-    totalBundles += item.bundles;
+    totalRevenue += item.TotalMEVRevenue || 0;
+    totalShared += item.TotalMEVShared || 0;
+    totalBundles += item.bundles || 0;
   }
 
   return {
