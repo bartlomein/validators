@@ -40,16 +40,14 @@ const ValidatorStats = ({
         <span className="capitalize">{name}</span>
         {` validator stats`}
       </div>
-      {items.map((statItem, index) => {
-        return (
-          <ValidatorStatsItem
-            key={index}
-            icon={statItem.icon}
-            text={statItem.text}
-            number={statItem.number}
-          />
-        );
-      })}
+      {items.map((statItem, index) => (
+        <ValidatorStatsItem
+          key={index}
+          icon={statItem.icon}
+          text={statItem.text}
+          number={statItem.number}
+        />
+      ))}
     </div>
   );
 };

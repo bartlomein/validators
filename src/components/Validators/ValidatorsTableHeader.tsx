@@ -42,34 +42,34 @@ const ValidatorsTableHeader = ({
 
   return (
     <div className="grid  grid-cols-[0.2fr_1fr_1fr_1fr_1fr]  gap-4 m-auto auto-columns-min ">
-      {HEADER_ITEMS.map((item, index) => {
-        return (
+      {HEADER_ITEMS.map((item, index) => (
+        <div
+          className={`${
+            index === 0 || index === 1
+              ? `text-left ${index === 1 ? `cursor-pointer` : ""}`
+              : `text-right cursor-pointer`
+          } text-slate-400 `}
+          key={index}
+          onClick={() =>
+            item.id &&
+            handleHeaderClick(
+              sortDir === "DESC" || sortDir === null ? "ASC" : "DESC",
+              item.id
+            )
+          }
+        >
           <div
-            className={`${
+            className={`flex ${
               index === 0 || index === 1
-                ? `text-left ${index === 1 ? `cursor-pointer` : ""}`
-                : `text-right cursor-pointer`
-            } text-slate-400 `}
-            key={index}
-            onClick={() =>
-              item.id &&
-              handleHeaderClick(
-                sortDir === "DESC" || sortDir === null ? "ASC" : "DESC",
-                item.id
-              )
-            }
+                ? `justify-start`
+                : `justify-end items-center`
+            }`}
           >
-            <div
-              className={`flex ${
-                index === 0 || index === 1 ? `justify-start` : `justify-end`
-              }`}
-            >
-              {sortArrow(item.id)}
-              {item.label}
-            </div>
+            {sortArrow(item.id)}
+            {item.label}
           </div>
-        );
-      })}
+        </div>
+      ))}
     </div>
   );
 };
