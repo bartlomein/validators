@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import ValidatorsHeader from "./ValidatorsHeader";
 import ValidatorsTable from "./ValidatorsTable";
 import { handleSort } from "./utils";
@@ -18,10 +18,10 @@ const ValidatorsCard = ({ name, data }: ValidatorsCardP) => {
   const [sortType, setSortType] = useState<SortByT | null>(null);
   const [filterSearch, setFilterSearch] = useState<string>("");
 
-  const handleHeaderClick = (dir: SortDirT, type: SortByT) => {
+  const handleHeaderClick = useCallback((dir: SortDirT, type: SortByT) => {
     setSortDir(dir);
     setSortType(type);
-  };
+  }, []);
 
   const tableData = useMemo(
     () => handleSort(sortDir, sortType, data),
