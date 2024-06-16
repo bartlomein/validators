@@ -35,7 +35,7 @@ const ValidatorStats = ({
   ];
 
   return (
-    <div className="p-24 rounded-md	border border-slate-500 height-400 h-full">
+    <div className="p-24 rounded-md	border border-slate-500 height-400 h-full my-4">
       <div className="text-2xl capitalize">
         <span className="capitalize">{name}</span>
         {` validator stats`}

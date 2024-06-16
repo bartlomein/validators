@@ -29,7 +29,7 @@ const ValidatorsCard = ({ name, data }: ValidatorsCardP) => {
   );
 
   return (
-    <div className="w-3/5" data-testid="validator-card">
+    <div className="w-3/5 my-4" data-testid="validator-card">
       <ValidatorsHeader name={name} setFilterSearch={setFilterSearch} />
       <ValidatorsTable
         filterSearch={filterSearch}

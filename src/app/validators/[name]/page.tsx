@@ -34,7 +34,7 @@ const Validator = async ({ params }: ValidatorPageP) => {
   return (
     <div>
       {statTotals && data ? (
-        <div className="flex justify-between mx-24 my-8">
+        <div className="flex justify-between mx-24 my-8 flex-wrap">
           <ValidatorsCard name={name as string} data={data} />
 
           <ValidatorStats
