@@ -34,7 +34,12 @@ const ValidatorsTable = ({
               key={index}
             >
               <ValidatorsTableItem content={index + 1} isText />
-              <ValidatorsTableItem content={validator.Name} isText />
+              <ValidatorsTableItem
+                content={validator.Name}
+                isText
+                isLink
+                url={"#"}
+              />
               <ValidatorsTableItem content={validator.TotalMEVRevenue} />
               <ValidatorsTableItem content={validator.TotalMEVShared} />
               <ValidatorsTableItem content={validator.bundles} />
