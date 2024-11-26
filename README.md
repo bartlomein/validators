@@ -1,4 +1,4 @@
-# Skip Validators
+#  Validators
 
 This is a SSR application that will show data on Validators. A user can go to `/validators/<NAME_OF_VALIDATOR>` to see a table and stats on that chain's top validators. The data table is filterable and sortable.
 
